@@ -2,6 +2,7 @@
 /results.csv
 /results.pdf
 /tests/benchmark_loop
+/tests/BenchmarkLoop.class
 
 # Vim Files
 .un~

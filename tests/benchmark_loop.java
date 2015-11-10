@@ -1,4 +1,4 @@
-class benchmark_loop { //what conventions?
+class BenchmarkLoop { //what conventions?
 	public static void main(String[] args) {
 		long iter = 0;
 		long start = System.currentTimeMillis();

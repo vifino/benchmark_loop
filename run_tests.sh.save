@@ -4,7 +4,7 @@
 TEST_RESULTS_FILE=results.csv
 
 ## Interpreters
-GCC=gcc
+GCC=gcc_awda
 LUAJIT=luajit
 NODE=node
 RUBY=ruby
@@ -20,9 +20,9 @@ function testlang {
 	echo "$ $3"
 	T=$(sh -c "$3")
 	RES=$?
-	ITERATIONS=$(echo "$T" | awk '{ print $1 }')
+	ITERATIONS
+	echo "Iterations: $ITERATIONS"
 	if [ $RES -eq 0 ]; then
-		echo "Iterations: $ITERATIONS"
 		echo "\"$1\",\"$2\",\"$3\",$ITERATIONS" >> $TEST_RESULTS_FILE
 	
 	else

@@ -5,6 +5,7 @@ TEST_RESULTS_FILE=results.csv
 
 ## Interpreters
 GCC=gcc
+PERL=perl
 LUAJIT=luajit
 NODE=node
 RUBY=ruby
@@ -36,6 +37,7 @@ rm -f benchmark_loop || true
 
 # TESTS
 testlang "C" "$($GCC -v 2>&1| tail -n1)" "$GCC $CFLAGS $LDFLAGS -O3 -o tests/benchmark_loop tests/benchmark_loop.c && ./tests/benchmark_loop"
+testlang "Perl" "$($PERL -v | head -n2 | sed '/^$/d')" "$PERL tests/benchmark_loop.pl"
 testlang "LuaJIT" "$($LUAJIT -v | awk '{ print $1,$2}')" "$LUAJIT tests/benchmark_loop.lua"
 testlang "Node.JS" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
 testlang "Ruby" "$($RUBY -v)" "$RUBY tests/benchmark_loop.rb"

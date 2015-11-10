@@ -9,7 +9,8 @@ LUAJIT=luajit
 NODE=node
 RUBY=ruby
 DART=dart
-PYTHON3=python
+PYTHON2=python2
+PYTHON3=python3
 
 # Pre-Test Setup
 rm -f $TEST_RESULTS_FILE || true
@@ -36,7 +37,8 @@ rm -f benchmark_loop || true
 # TESTS
 testlang "C" "$($GCC -v 2>&1| tail -n1)" "$GCC $CFLAGS $LDFLAGS -O3 -o tests/benchmark_loop tests/benchmark_loop.c && ./tests/benchmark_loop"
 testlang "LuaJIT" "$($LUAJIT -v | awk '{ print $1,$2}')" "$LUAJIT tests/benchmark_loop.lua"
-testlang "JavaScript" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
+testlang "Node.JS" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
 testlang "Ruby" "$($RUBY -v)" "$RUBY tests/benchmark_loop.rb"
 testlang "Dart" "$(dart --version 2>&1)" "$DART tests/benchmark_loop.dart" 
+testlang "Python 2" "$($PYTHON2 --version 2>&1)" "$PYTHON2 tests/benchmark_loop.py"
 testlang "Python 3" "$($PYTHON3 --version 2>&1)" "$PYTHON3 tests/benchmark_loop.py" 

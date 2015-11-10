@@ -1,5 +1,7 @@
 # benchmark_loop
-Basic Language Benchmark purely based on speed.
+Basic Language Benchmark purely based on hot loop speed.
+
+This Benchmark is mainly to test the speed of JITs and the like facing a good situation to kick in, it does not represent accurate performance numbers.
 
 # Running
 Get the interpreters/compilers for the given languages, like `gcc` or `luajit`.
@@ -32,5 +34,4 @@ Language,Version,Command,Iterations
 "JavaScript","Node.JS v5.0.0","node tests/benchmark_loop.js",51066368
 "Ruby","ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-linux]","ruby tests/benchmark_loop.rb",18167168
 "Dart","Dart VM version: 1.12.2 (Wed Oct 21 07:18:28 2015) on "linux_x64"","dart tests/benchmark_loop.dart",236128512
-"Python 3","Python 2.7.10","python tests/benchmark_loop.py",4458496
 ```

@@ -3,7 +3,7 @@
 # Variables
 TEST_RESULTS_FILE=results.csv
 
-## Interpreters
+## Interpreters/compilers
 GCC=gcc
 PERL=perl
 LUAJIT=luajit
@@ -12,6 +12,8 @@ RUBY=ruby
 DART=dart
 PYTHON2=python2
 PYTHON3=python3
+JAVA=java
+JAVAC=javac
 
 # Pre-Test Setup
 rm -f $TEST_RESULTS_FILE || true
@@ -43,4 +45,5 @@ testlang "Node.JS" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
 testlang "Ruby" "$($RUBY -v)" "$RUBY tests/benchmark_loop.rb"
 testlang "Dart" "$(dart --version 2>&1)" "$DART tests/benchmark_loop.dart" 
 testlang "Python 2" "$($PYTHON2 --version 2>&1)" "$PYTHON2 tests/benchmark_loop.py"
-testlang "Python 3" "$($PYTHON3 --version 2>&1)" "$PYTHON3 tests/benchmark_loop.py" 
+testlang "Python 3" "$($PYTHON3 --version 2>&1)" "$PYTHON3 tests/benchmark_loop.py"
+testlang "Java" "$($JAVA -version 2>&1)" "$JAVAC tests/benchmark_loop.java && $JAVA tests/benchmark_loop"

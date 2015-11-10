@@ -1,0 +1,7 @@
+# Test Files
+/results.csv
+/tests/benchmark_loop
+
+# Vim Files
+.un~
+.swp

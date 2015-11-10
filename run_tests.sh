@@ -7,6 +7,7 @@ TEST_RESULTS_FILE=results.csv
 GCC=gcc
 LUAJIT=luajit
 NODE=node
+RUBY=ruby
 DART=dart
 
 # Pre-Test Setup
@@ -28,4 +29,5 @@ rm -f benchmark_loop || true
 testlang "C" "$($GCC -v 2>&1| tail -n1)" "$GCC $CFLAGS $LDFLAGS -O3 -o tests/benchmark_loop tests/benchmark_loop.c && ./tests/benchmark_loop"
 testlang "LuaJIT" "$($LUAJIT -v | awk '{ print $1,$2}')" "$LUAJIT tests/benchmark_loop.lua"
 testlang "JavaScript" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
+testlang "Ruby" "$($RUBY -v)" "$RUBY tests/benchmark_loop.rb"
 testlang "Dart" "$(dart --version 2>&1)" "$DART tests/benchmark_loop.dart" 

@@ -9,6 +9,7 @@ LUAJIT=luajit
 NODE=node
 RUBY=ruby
 DART=dart
+PYTHON3=python
 
 # Pre-Test Setup
 rm -f $TEST_RESULTS_FILE || true
@@ -31,3 +32,4 @@ testlang "LuaJIT" "$($LUAJIT -v | awk '{ print $1,$2}')" "$LUAJIT tests/benchmar
 testlang "JavaScript" "Node.JS $($NODE -v)" "$NODE tests/benchmark_loop.js"
 testlang "Ruby" "$($RUBY -v)" "$RUBY tests/benchmark_loop.rb"
 testlang "Dart" "$(dart --version 2>&1)" "$DART tests/benchmark_loop.dart" 
+testlang "Python3" "$($PYTHON3 --version)" "$PYTHON3 tests/benchmark_loop.py" 

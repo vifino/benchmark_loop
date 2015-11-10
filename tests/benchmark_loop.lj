@@ -1,0 +1,6 @@
+iter = 0
+a = time()
+while iter%128 != 0 || (time()-a) < 1
+	iter = iter + 1
+end
+println("$iter iterations")

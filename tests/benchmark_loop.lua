@@ -1,4 +1,3 @@
-require "jit".opt.start(3)
 local clock = os.clock
 local iter = 0
 local a = clock()
